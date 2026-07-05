@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "guidectl"
+dynamic = ["version"]
+description = "CLI + SDK for the DevOps AI ToolKit guides API — search DevOps guides and error guides from your terminal."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "DevOps AI ToolKit", email = "consulting@devopsaitoolkit.com" }]
+keywords = ["devops", "sre", "error-guides", "troubleshooting", "cli", "kubernetes", "terraform", "openstack", "runbooks"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: System :: Systems Administration",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://devopsaitoolkit.com"
+Repository = "https://github.com/devopsaitoolkit/guidectl"
+"Guides" = "https://devopsaitoolkit.com/blog/"
+API = "https://devopsaitoolkit.com/api/v1/meta.json"
+
+[project.scripts]
+guidectl = "guidectl.cli:main"
+
+[tool.hatch.version]
+path = "guidectl/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["guidectl"]
+
+[tool.hatch.build.targets.sdist]
+include = ["guidectl", "README.md", "LICENSE", "tests"]
